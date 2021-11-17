@@ -11,3 +11,111 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.navbar {
+  margin: 10;
+    padding: 10;
+    box-sizing: border-box;
+    border-style: hidden;
+}
+
+.stud_dash {
+  margin: 10;
+    padding: 10;
+    box-sizing: border-box;
+    border-style: hidden;
+}
+
+.navbar div#topbar.center{
+  display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 5px;
+}
+
+.stud_dash .tab {
+  overflow: hidden;
+  border: black;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.stud_dash .tab button {
+  background-color: whitesmoke;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 15%;
+  transition: 0.5s;
+}
+
+.stud_dash .tab button:hover {
+  background-color: white;
+}
+
+.stud_dash .tab button.active {
+  background-color: cornflowerblue;
+}
+
+.stud_dash .content {
+  display: none;
+  padding: 6px 12px;
+  border-top: none;
+}
+
+/* .stud_dash #addCourse.tabcontent {
+  padding: 1%;
+} */
+
+.stud_dash .content table.full {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.stud_dash .content th {
+  padding: 10px;
+}
+
+.stud_dash .content td {
+  padding: 10px;
+  text-align: center;
+}
+
+.stud_dash .content button.plus {
+  border-style: hidden;
+  background-color: white;
+  font-size: xx-large;
+}
+
+.stud_dash .content button#status {
+  border-style: hidden;
+  background-color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.stud_dash .active-content {
+  display: block;
+}
+
+.teach_dash {
+  margin: 10;
+    padding: 10;
+    box-sizing: border-box;
+    border-style: hidden;
+}
+
+.teach_dash table.full {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.teach_dash th {
+  padding: 10px;
+}
+
+.teach_dash td {
+  padding: 10px;
+  text-align: center;
+}
