@@ -1,7 +1,13 @@
 const router = require("express").Router();
-const { PrismaClient } = require("@prisma/client");
 
+const { PrismaClient } = require("@prisma/client");
 const { users } = new PrismaClient();
+
+// fetch all
+router.get("/", async (req, res) => {
+	const result = await users.findMany();
+	res.json(result);
+});
 
 router.post("/", async (req, res) => {
 	const { username, password } = req.body;
@@ -14,30 +20,11 @@ router.post("/", async (req, res) => {
 	res.json(result);
 });
 
-router.get("/", async (req, res) => {
-	const result = await users.findMany();
-	res.json(result);
-});
-
-router.put("/:id", async (req, res) => {
-	const user_id = req.params;
-	const { username, password } = req.body;
-	const result = await users.update({
-		where: {
-			user_id,
-		},
-		data: {
-			username,
-			password,
-		},
-	});
-	res.json(result);
-});
 router.delete("/:id", async (req, res) => {
-	const id = Number(req.params.id);
+	const user_id = Number(req.params.id);
 	const result = await users.delete({
 		where: {
-			id,
+			user_id: user_id,
 		},
 	});
 	res.json(result);
