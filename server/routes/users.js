@@ -5,17 +5,14 @@ const { users } = new PrismaClient();
 
 // create
 router.post("/", async (req, res) => {
-	const { username } = req.body;
-
-	const user = await users.findUnique({
-		where: {
-			username: username,
-		},
-		select: {
-			username: true,
+	const { username, password } = req.body;
+	const result = await users.create({
+		data: {
+			username,
+			password,
 		},
 	});
-	res.json(user);
+	res.json(result);
 });
 
 // reads all users
@@ -35,14 +32,34 @@ router.get("/:id", async (req, res) => {
 	const { user_id } = req.params;
 	const user = await users.findFirst({
 		where: {
-			user_id: user_id,
+			user_id: Number(user_id),
 		},
 	});
 	res.json(user);
 });
 
 // update
+router.put("/:id", async (req, res) => {
+	const user_id = Number(req.params.id);
+	const { username, password } = req.body;
+	const result = await users.update({
+		where: { user_id },
+		data: {
+			username,
+			password,
+		},
+	});
+	res.json(result);
+});
 
 // delete
-
+router.delete("/:id", async (req, res) => {
+	const user_id = req.params.id;
+	const result = await users.delete({
+		where: {
+			user_id: Number(user_id),
+		},
+	});
+	res.json(result);
+});
 module.exports = router;
