@@ -1,10 +1,3 @@
-/*
-
-FIRST TIME: npm install
-TO START SERVER: npm start
-
-*/
-
 const express = require("express");
 const app = express();
 
